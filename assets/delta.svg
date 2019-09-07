@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   width="290"
+   height="360"
+   version="1.0"
+   sodipodi:docbase="C:\Users\Vladsinger\Desktop"
+   sodipodi:docname="Greek_uc_delta.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs5" />
+  <sodipodi:namedview
+     inkscape:window-height="575"
+     inkscape:window-width="765"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="0.9425"
+     inkscape:cx="145"
+     inkscape:cy="200"
+     inkscape:window-x="179"
+     inkscape:window-y="241"
+     inkscape:current-layer="svg2" />
+  <path
+     style="fill:#dddddd"
+     d="M 20.55086,341.32427 C 20.904411,340.36177 49.415052,275.33687 83.907852,196.82448 L 146.62201,54.074695 L 150.16469,54.074483 L 153.70738,54.074271 L 213.56017,197.82427 C 246.4792,276.88677 273.59905,341.91177 273.8265,342.32427 C 274.05395,342.73677 217.01534,343.07427 147.07404,343.07427 C 26.385345,343.07427 19.940781,342.98513 20.55086,341.32427 z M 222.95534,324.13265 C 220.71825,317.81318 138.51396,119.07517 138.13811,119.07757 C 137.74414,119.08008 64.648702,284.53923 49.914232,318.7815 L 47.206452,325.07427 L 135.24756,325.07427 C 189.87191,325.07427 223.16216,324.71687 222.95534,324.13265 z "
+     id="path2161" />
+</svg>

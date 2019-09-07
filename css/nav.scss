@@ -1,0 +1,70 @@
+$sidenav-width: 15em;
+
+.sidenav {
+  width: $sidenav-width;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-right: 0.5px solid $text-sub-color;
+  transition: width 0.2s;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  z-index: 100;
+  background-color: $background-color;
+}
+
+.branding {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  border-bottom: 0.5px solid $text-sub-color;
+}
+
+.site-title {
+  margin: 0 0 0.5em 0;
+}
+
+.sidenav-logo {
+  width: 9em;
+  color: white;
+  margin: 0 auto;
+}
+
+.content {
+  transition: margin-left 0.2s;
+  margin-left: $sidenav-width;
+}
+
+.topnav {
+  height: 0;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topnav-logo {
+  width: 2.4em;
+  height: 3.2em;
+  margin: 0 0 0 0.5em;
+}
+
+.topnav-menu {
+  margin: 0 0.5em 0 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .sidenav {
+    width: 0;
+  }
+
+  .topnav {
+    height: 3.5em;
+    border-bottom: 0.5px solid $text-main-color;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+}
