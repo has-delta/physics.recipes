@@ -1,7 +1,9 @@
 const $ = document.querySelector.bind(document);
 
 function openSideNav() {
-  $('side-nav').style.width = '16em';
+  $('.sidenav').style.width = '15em';
+  $('.content').style.marginLeft = '15em';
+  console.log();
 }
 
-$('side-nav').addEventListener('onclick', openSideNav)
+$('.topnav-menu').addEventListener('onclick', openSideNav);
