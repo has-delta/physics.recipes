@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "parcel index.html",
     "prebuild": "rm -rf dist/",
-    "build": "npm run prebuild && parcel build --no-source-maps index.html",
+    "build": "npm run prebuild && parcel build --no-source-maps index.html --public-url /physics.recipes/",
     "deploy": "npm run build && ./node_modules/.bin/gh-pages -d dist/"
   },
   "keywords": [],
