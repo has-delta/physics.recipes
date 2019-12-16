@@ -1,6 +1,7 @@
 .content {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .card {
@@ -9,4 +10,28 @@
 }
 
 .simulation {
+  width: 90%;
+}
+
+.explanation {
+  width: 90%;
+}
+
+div.matter-demo {
+  height: fit-content;
+}
+
+div.matter-demo canvas {
+  width: 90%;
+  // height: calc(80% / 16 * 9);
+  max-width: unset;
+  max-height: unset;
+  min-width: unset;
+  min-height: unset;
+}
+
+@media only screen and (max-width: 600px) {
+  .content {
+    flex-direction: column;
+  }
 }

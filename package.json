@@ -17,5 +17,11 @@
     "parcel-bundler": "^1.12.3",
     "sass": "^1.22.10"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jstree": "^3.3.8",
+    "katex": "^0.11.1",
+    "matter-js": "^0.14.2",
+    "matter-tools": "git+https://github.com/rocketll/matter-tools.git",
+    "resurrect-js": "^1.0.1"
+  }
 }
