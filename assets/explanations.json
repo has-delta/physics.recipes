@@ -4,6 +4,6 @@
   "newtonsCradle": "lmao",
   "hello": "Hello",
   "hooke": "lmao",
-  "momentum2d": "lmao",
+  "momentum2d": "외력이 작용하지 않을 때, 운동량은 보존되며, 이를 이용하여 충돌과 관련된 문제를 해결할 수 있다.<br>다르게 말하면, x방향으로 작용하는 운동량은 충돌 전과 충돌 후가 같으므로 \\sum p_{xi} = \\sum p_{xf}가 성립한다.",
   "friction": "friction!!!!!!!!!!"
 }
