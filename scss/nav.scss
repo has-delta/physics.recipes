@@ -84,3 +84,7 @@ $sidenav-width: 15em;
     margin-left: $sidenav-width !important;
   }
 }
+
+ul.scenes > li {
+  list-style-type: none;
+}

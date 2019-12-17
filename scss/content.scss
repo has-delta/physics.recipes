@@ -1,0 +1,26 @@
+.matter-example-select,
+.matter-example-select * {
+  background-color: $text-alt-color;
+  font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+}
+
+div.matter-demo {
+  background-color: $background-color;
+}
+
+.simulation,
+.content-title {
+  background-color: $background-color;
+}
+
+.explanation {
+  color: $text-alt-color;
+}
+
+.explanation-content {
+  margin: 1em;
+}
+
+.matter-header-inner h1.matter-demo-title a {
+  font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+}

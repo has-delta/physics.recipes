@@ -1,12 +1,13 @@
 window.Scene = window.Scene || {};
 
-import Matter from 'matter-js';
+import Matter, { Body } from 'matter-js';
 
-window.Scene.slingshot = function () {
+window.Scene.momentum2d = function () {
   var Engine = Matter.Engine,
     Render = Matter.Render,
     Runner = Matter.Runner,
     Composites = Matter.Composites,
+    Composite = Matter.Composite,
     Events = Matter.Events,
     Constraint = Matter.Constraint,
     MouseConstraint = Matter.MouseConstraint,
@@ -23,9 +24,10 @@ window.Scene.slingshot = function () {
     element: document.body,
     engine: engine,
     options: {
-      width: 1280,
-      height: 720,
-      showAngleIndicator: true
+      width: 1920,
+      height: 1080,
+      showAngleIndicator: false,
+      wireframes: false
     }
   });
 
@@ -35,32 +37,38 @@ window.Scene.slingshot = function () {
   var runner = Runner.create();
   Runner.run(runner, engine);
 
+  world.gravity.scale = 0;
+
   // add bodies
-  var ground = Bodies.rectangle(395, 600, 815, 50, { isStatic: true }),
-    rockOptions = { density: 0.004 },
-    rock = Bodies.polygon(170, 450, 8, 20, rockOptions),
-    anchor = { x: 170, y: 450 },
+  let rockOptions = { density: 1, restitution: 1, render: { fillStyle: "#ff0000" } },
+    rock = Bodies.circle(170, 370, 25, rockOptions),
+    anchor = { x: 170, y: 370 },
     elastic = Constraint.create({
       pointA: anchor,
       bodyB: rock,
-      stiffness: 0.05
+      stiffness: 0.1,
+      render: {
+        "type": "spring"
+      }
     });
 
-  var pyramid = Composites.pyramid(500, 300, 9, 10, 0, 0, function (x, y) {
-    return Bodies.rectangle(x, y, 25, 40);
+  let pyramid = Composites.pyramid(900, 360, 9, 10, 0, 0, function (x, y) {
+    return Bodies.circle(x, y, 25, { density: 1, restitution: 1 });
   });
 
-  var ground2 = Bodies.rectangle(610, 250, 200, 20, { isStatic: true });
+  Composite.rotate(pyramid, -Math.PI / 2, { x: 900, y: 360 });
+  Composite.translate(pyramid, { x: 0, y: 240 });
+
 
   var pyramid2 = Composites.pyramid(550, 0, 5, 10, 0, 0, function (x, y) {
     return Bodies.rectangle(x, y, 25, 40);
   });
 
-  World.add(engine.world, [ground, pyramid, ground2, pyramid2, rock, elastic]);
+  World.add(engine.world, [pyramid, rock, elastic]);
 
   Events.on(engine, 'afterUpdate', function () {
-    if (mouseConstraint.mouse.button === -1 && (rock.position.x > 190 || rock.position.y < 430)) {
-      rock = Bodies.polygon(170, 450, 7, 20, rockOptions);
+    if (mouseConstraint.mouse.button === -1 && (rock.position.y < 360 || rock.position.x > 180 || rock.position.y > 380)) {
+      rock = Bodies.circle(170, 370, 25, rockOptions);
       World.add(engine.world, rock);
       elastic.bodyB = rock;
     }

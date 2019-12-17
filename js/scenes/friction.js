@@ -2,12 +2,12 @@ window.Scene = window.Scene || {};
 
 import Matter from 'matter-js';
 
-window.Scene.compound = function () {
+window.Scene.friction = function () {
   var Engine = Matter.Engine,
     Render = Matter.Render,
     Runner = Matter.Runner,
     Body = Matter.Body,
-    Constraint = Matter.Constraint,
+    Composites = Matter.Composites,
     MouseConstraint = Matter.MouseConstraint,
     Mouse = Matter.Mouse,
     World = Matter.World,
@@ -25,7 +25,8 @@ window.Scene.compound = function () {
       width: 1280,
       height: 720,
       showAxes: true,
-      showConvexHulls: true
+      showConvexHulls: false,
+      wireframes: false
     }
   });
 
@@ -35,41 +36,27 @@ window.Scene.compound = function () {
   var runner = Runner.create();
   Runner.run(runner, engine);
 
-  // add bodies
-  var size = 200,
-    x = 500,
-    y = 200,
-    partA = Bodies.rectangle(x, y, size, size / 5),
-    partB = Bodies.rectangle(x, y, size / 5, size, { render: partA.render });
-
-  var compoundBodyA = Body.create({
-    parts: [partA, partB]
-  });
-
-  size = 150;
-  x = 640;
-  y = 360;
-
-  var partC = Bodies.circle(x, y, 30),
-    partD = Bodies.circle(x + size, y, 30),
-    partE = Bodies.circle(x + size, y + size, 30),
-    partF = Bodies.circle(x, y + size, 30);
-
-  var compoundBodyB = Body.create({
-    parts: [partC, partD, partE, partF]
-  });
-
-  var constraint = Constraint.create({
-    pointA: { x: 700, y: 100 },
-    bodyB: compoundBodyB,
-    pointB: { x: 0, y: 0 }
-  });
+  World.add(world, [
+    // walls
+    Bodies.rectangle(640, 0, 1280, 50, { isStatic: true }),
+    Bodies.rectangle(640, 720, 1280, 50, { isStatic: true }),
+    Bodies.rectangle(1280, 360, 50, 720, { isStatic: true }),
+    Bodies.rectangle(0, 360, 50, 720, { isStatic: true })
+  ]);
 
   World.add(world, [
-    compoundBodyA,
-    compoundBodyB,
-    constraint,
-    Bodies.rectangle(700, 600, 800, 50.5, { isStatic: true })
+    Bodies.rectangle(300, 180, 1200, 20, { isStatic: true, angle: Math.PI * 0.04 }),
+    Bodies.rectangle(300, 70, 40, 40, { friction: 0.01 })
+  ]);
+
+  World.add(world, [
+    Bodies.rectangle(300, 350, 1200, 20, { isStatic: true, angle: Math.PI * 0.04 }),
+    Bodies.rectangle(300, 250, 40, 40, { friction: 0.00005 })
+  ]);
+
+  World.add(world, [
+    Bodies.rectangle(300, 520, 1200, 20, { isStatic: true, angle: Math.PI * 0.04 }),
+    Bodies.rectangle(300, 430, 40, 40, { friction: 0 })
   ]);
 
   // add mouse control

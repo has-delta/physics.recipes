@@ -1,13 +1,22 @@
-import MatterTools from 'matter-tools';
+import { Demo } from 'matter-tools';
+const Inspector = require('matter-tools').Inspector;
+const Gui = require('matter-tools').Gui;
+import expl from '../assets/explanations.json';
 
+const $ = document.querySelector.bind(document);
 const scenes = [
   { name: 'Compound Bodies', id: 'compound' },
-  { name: 'Slingshot', id: 'slingshot' }
+  { name: 'Slingshot', id: 'slingshot' },
+  { name: 'Newton\'s Cradle', id: 'newtonsCradle' },
+  { name: 'Introduction', id: 'hello' },
+  { name: 'Hooke\'s Law', id: 'hooke' },
+  { name: '2D Momentum', id: 'momentum2d' },
+  { name: 'Friction', id: 'friction' }
 ]
 
 const sourceLinkRoot = './scenes'
 
-for (var i = 0; i < scenes.length; i += 1) {
+for (let i = 0; i < scenes.length; i += 1) {
   var scene = scenes[i];
   scene.sourceLink = sourceLinkRoot + '/' + scene.id + '.js';
   scene.init = window.Scene[scene.id];
@@ -17,10 +26,10 @@ for (var i = 0; i < scenes.length; i += 1) {
   }
 }
 
-let demo = MatterTools.Demo.create({
+let demo = Demo.create({
   toolbar: {
-    title: 'matter-js',
-    url: 'https://github.com/liabru/matter-js',
+    title: 'source',
+    url: 'https://github.com/has-delta/physics.recipes',
     reset: true,
     source: false,
     inspector: true,
@@ -36,10 +45,20 @@ let demo = MatterTools.Demo.create({
   preventZoom: true,
   resetOnOrientation: true,
   routing: true,
-  startExample: 'mixed',
+  startExample: 'slingshot',
   examples: scenes
 });
 
-document.querySelector('.simulation').appendChild(demo.dom.root);
+const findSceneByName = (name) => {
+  for (let i = 0; i < scenes.length; i += 1) {
+    if (scenes[i].id === name) return scenes[i].name;
+  }
+}
 
-MatterTools.Demo.start(demo);
+$('.simulation').appendChild(demo.dom.root);
+
+Demo.start(demo);
+
+$('.content-title').innerHTML = findSceneByName(demo.startExample);
+$('.explanation-content').innerHTML = expl[demo.startExample];
+
